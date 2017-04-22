@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "/home/jv/.Xmodmap"
+
+# Autostart
+firefox &
+nm-applet &
+blueman-applet &
+kdeconnect-cli --refresh &
+xscreensaver -no-splash &
+#redshift-gtk -l 52.5243:13.4063 &
+cbatticon -i standard -l 15 -r 5 -c "xscreensaver-command -lock; sleep 2; systemctl -i suspend" &
+volumeicon &
+
+# Wallpaper
+feh --bg-scale Bilder/by_upload1_2560.jpg
+
+exec fluxbox
+# or if you want to keep a log:
+# exec fluxbox -log "/home/jv/.fluxbox/log"
